@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="landscape">Landscapes</button>
+        <button class="filter-btn" data-filter="portrait">Portraits</button>
+        <button class="filter-btn" data-filter="architecture">Architecture</button>
+    </div>
+
+    <!-- Gallery Grid -->
+     <div class="gallery">
+        <div class="card" data-category="landscape">
+            <img src="https://images.pexels.com/photos/33412299/pexels-photo-33412299.jpeg" alt="Landscape">
+            <div class="card-info">
+                <h3>Mountain View</h3>
+                <span class="tag">Landscape</span>
+            </div>
+            <div class="overlay">
+             <p>A breathtaking view of the mountains at sunset.</p>
+            </div>
+     </div>
+
+     <div class="card" data-category="portrait">
+        <img src="https://images.pexels.com/photos/28959060/pexels-photo-28959060.jpeg" alt="Portrait">
+        <div class="card-info">
+            <h3>Smiling Faces</h3>
+            <span class="tag">Portrait</span>
+        </div>
+        <div class="overlay">
+            <p>A candid portrait capturing joy and laughter.</p>
+        </div>
+     </div>
+
+     <div class="card" data-category="architecture">
+        <img src="https://images.pexels.com/photos/35115856/pexels-photo-35115856.jpeg" alt="Architecture">
+        <div class="card-info">
+            <h3>Modern Building</h3>
+            <span class="tag">Architecture</span>
+        </div>
+        <div class="overlay">
+            <p>Minimalist design with sleek glass panels</p>
+        </div>
+     </div>
+
+     <div class="card" data-category="landscape">
+        <img src="https://images.pexels.com/photos/18069891/pexels-photo-18069891.jpeg" alt="Landscape">
+        <div class="card-info">
+            <h3>Forest Path</h3>
+            <span class="tag">Landscape</span>
+        </div>
+        <div class="overlay">
+            <p>A serene walk through the forest trail.</p>
+        </div>
+    </div>
+
+    <div class="card" data-category="portrait">
+        <img src="https://images.pexels.com/photos/7130194/pexels-photo-7130194.jpeg" alt="Portrait">
+        <div class="card-info">
+            <h3>Thoughtful Gaze</h3>
+            <span class="tag">Portrait</span>
+        </div>
+        <div class="overlay">
+            <p>A portrait capturing deep contemplation.</p>
+        </div>
+     </div>
+
+     <div class="card" data-category="architecture">
+        <img src="https://images.pexels.com/photos/29870033/pexels-photo-29870033.jpeg" alt="Architecture">
+        <div class="card-info">
+            <h3>Historic Castle</h3>
+            <span class="tag">Architecture</span>
+        </div>
+        <div class="overlay">
+            <p>Medieval architecture with stone walls.</p>
+        </div>
+     </div>
+
+     <div class="card" data-category="landscape">
+        <img src="https://images.pexels.com/photos/7977147/pexels-photo-7977147.jpeg" alt="Landscape">
+        <div class="card-info">
+            <h3>Ocean Waves</h3>
+            <span class="tag">Landscape</span>
+        </div>
+        <div class="overlay">
+            <p>Powerful waves crashing against the shore.</p>
+        </div>
+    </div>
+
+    <div class="card" data-category="portrait">
+        <img src="https://images.pexels.com/photos/15369460/pexels-photo-15369460.jpeg" alt="Portrait">
+        <div class="card-info">
+            <h3>Street Style</h3>
+            <span class="tag">Portrait</span>
+        </div>
+        <div class="overlay">
+            <p>Urban portrait showcasing fashion and attitude.</p>
+        </div>
+     </div>
+
+     <div class="card" data-category="architecture">
+        <img src="https://c.pxhere.com/photos/60/99/amazing_architecture_beautiful_view_buildings_business_city_cityscape_downtown-1556555.jpg!d" alt="Architecture">
+        <div class="card-info">
+            <h3>City Skyline</h3>
+            <span class="tag">Architecture</span>
+        </div>
+        <div class="overlay">
+            <p>Skyscrapers lighting up the night sky.</p>
+        </div>
+     </div>
+
+     <div class="card" data-category="landscape">
+        <img src="https://images.pexels.com/photos/7611347/pexels-photo-7611347.jpeg" alt="Landscape">
+        <div class="card-info">
+            <h3>Desert Dunes</h3>
+            <span class="tag">Landscape</span>
+        </div>
+        <div class="overlay">
+            <p>Golden sands stretching endlessly.</p>
+        </div>
+    </div>
+
+    <div class="card" data-category="portrait">
+        <img src="https://images.pexels.com/photos/9775911/pexels-photo-9775911.jpeg" alt="Portrait">
+        <div class="card-info">
+            <h3>Artist at work</h3>
+            <span class="tag">Portrait</span>
+        </div>
+        <div class="overlay">
+            <p>A painter immersed in creativity.</p>
+        </div>
+    </div>
+
+    <div class="card" data-category="architecture">
+        <img src="https://images.pexels.com/photos/35027662/pexels-photo-35027662.jpeg" alt="Architecture">
+        <div class="card-info">
+            <h3>Bridges Design</h3>
+            <span class="tag">Architecture</span>
+        </div>
+        <div class="overlay">
+            <p>An engineering marvel spanning the river.</p>
+        </div>
+     </div>
+
+     <script>
+        // Filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove( 'active'));
+                btn.classList.add('active');
+                const filter =btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    card.style.transition = "all 0.5s ease";
+                    if (filter === "all" || card.getAttribute('data-category') === filter) {
+                        card.style.opacity = "1";
+                        card.style.transform = "scale(1)";
+                        card.style.display = "block";
+                    } else {
+                        card.style.opacity = "0";
+                        card.style.transform = "scale(0.8)";
+                        setTimeout(() => card.style.display = "none", 500);
+                    }
+                });
+            });
+        });
+     </script>
+    
+</body>
+</html>
